@@ -1,0 +1,230 @@
+/* ============================================
+   DESIGN TOKENS
+   ============================================ */
+:root {
+  --bg-primary: #0f0e17;
+  --bg-secondary: #16142a;
+  --bg-card: #1c1a2e;
+  --accent: #7c3aed;
+  --accent-hover: #6d28d9;
+  --text-primary: #f0eeff;
+  --text-muted: rgba(240, 238, 255, 0.5);
+  --border-color: rgba(124, 58, 237, 0.25);
+  --input-bg: #211e38;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --font: 'Inter', 'Segoe UI', Arial, sans-serif;
+  --shadow: 0 4px 32px rgba(0, 0, 0, 0.45);
+}
+
+/* ============================================
+   PAGE LAYOUT
+   ============================================ */
+.create-page-container {
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+  padding: 40px 80px;
+}
+
+.create-page-header {
+  margin-bottom: 40px;
+}
+
+.create-page-header h1,
+.title {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.3px;
+}
+
+/* ============================================
+   FORM CONTENT (two-column layout)
+   ============================================ */
+.form-content {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+/* ============================================
+   DROP ZONE
+   ============================================ */
+.drop-zone {
+  width: 100%;
+  height: 400px;
+  border: 2px dashed var(--border-color);
+  border-radius: var(--radius-lg);
+  background-color: var(--input-bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+.drop-zone:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+  background-color: #1f556e;
+}
+
+.drop-zone.drag-active {
+  border-color: var(--accent);
+  background-color: rgba(43, 209, 126, 0.08);
+}
+
+.drop-zone.has-image {
+  border-style: solid;
+  border-color: var(--border-color);
+  padding: 0;
+}
+
+.download-icon {
+  font-size: 32px;
+  margin-bottom: 12px;
+  opacity: 0.6;
+}
+
+.drop-text {
+  color: var(--text-muted);
+  font-size: 14px;
+  font-family: var(--font);
+}
+
+.image-preview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ============================================
+   INPUT GROUP (right column)
+   ============================================ */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 8px;
+}
+
+.input-field {
+  width: 100%;
+  max-width: 360px;
+  height: 46px;
+  padding: 0 14px;
+  background-color: var(--input-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-size: 14px;
+  font-family: var(--font);
+  outline: none;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.input-field:focus {
+  border-color: var(--accent);
+  background-color: #1f5570;
+}
+
+.input-field::placeholder {
+  color: var(--text-muted);
+}
+
+.input-year {
+  max-width: 200px;
+}
+
+/* ============================================
+   ERROR TEXT
+   ============================================ */
+p.error-text {
+  font-size: 12px;
+  color: #ff6b6b;
+  margin-top: -4px;
+  padding-left: 2px;
+}
+
+/* ============================================
+   BUTTON GROUP
+   ============================================ */
+.button-group {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.btn {
+  height: 48px;
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  font-weight: 600;
+  font-family: var(--font);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  padding: 0 28px;
+}
+
+.btn-cancel {
+  background-color: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+}
+
+.btn-cancel:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.btn-submit {
+  background-color: var(--accent);
+  color: var(--text-primary);
+  padding: 0 40px;
+}
+
+.btn-submit:hover:not(:disabled) {
+  background-color: var(--accent-hover);
+}
+
+.btn-submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 960px) {
+  .create-page-container {
+    padding: 32px 24px;
+  }
+
+  .form-content {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .drop-zone {
+    max-width: 100%;
+  }
+
+  .input-field,
+  .input-year {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .button-group {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}

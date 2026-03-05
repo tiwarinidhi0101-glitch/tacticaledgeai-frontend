@@ -1,0 +1,90 @@
+/* ============================================
+   HEADER
+   ============================================ */
+header.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 80px;
+    background-color: var(--bg-primary);
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* ============================================
+   LEFT SIDE: Title + Add Button
+   ============================================ */
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.header-left h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.3px;
+    margin: 0;
+}
+
+.header-left button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background-color: var(--accent);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    padding: 0;
+}
+
+.header-left button:hover {
+    background-color: var(--accent-hover);
+}
+
+.header-left button svg {
+    width: 18px;
+    height: 18px;
+    stroke: white;
+    fill: transparent;
+}
+
+/* ============================================
+   LOGOUT BUTTON
+   ============================================ */
+.logout-button {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    color: var(--text-primary);
+    font-size: 14px;
+    font-weight: 500;
+    font-family: var(--font);
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.logout-button:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+    header.header {
+        padding: 16px 20px;
+    }
+
+    .header-left h1 {
+        font-size: 22px;
+    }
+}

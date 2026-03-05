@@ -1,0 +1,170 @@
+/* ============================================
+   DESIGN TOKENS (shared with SignIn.css)
+   ============================================ */
+:root {
+  --bg-primary: #0f0e17;
+  --bg-secondary: #16142a;
+  --bg-card: #1c1a2e;
+  --accent: #7c3aed;
+  --accent-hover: #6d28d9;
+  --text-primary: #f0eeff;
+  --text-muted: rgba(240, 238, 255, 0.5);
+  --border-color: rgba(124, 58, 237, 0.25);
+  --input-bg: #211e38;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --font: 'Inter', 'Segoe UI', Arial, sans-serif;
+  --shadow: 0 4px 32px rgba(0, 0, 0, 0.45);
+}
+
+/* ============================================
+   APP CONTAINER
+   ============================================ */
+.app-container {
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+}
+
+/* ============================================
+   MOVIE GRID
+   ============================================ */
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 24px;
+  padding: 32px 80px;
+}
+
+/* ============================================
+   MOVIE CARD
+   ============================================ */
+.movie-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.movie-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+}
+
+.movie-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+/* ============================================
+   MOVIE CARD INFO ROW
+   ============================================ */
+.infoContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 14px;
+}
+
+.movie-info h3 {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 130px;
+}
+
+.movie-info p {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 3px;
+}
+
+/* ============================================
+   EDIT BUTTON ON CARD
+   ============================================ */
+.updateBtn {
+  background-color: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-size: 13px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-family: var(--font);
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+  white-space: nowrap;
+}
+
+.updateBtn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ============================================
+   EMPTY STATE
+   ============================================ */
+.empty-movie {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 100px);
+  gap: 24px;
+  padding: 40px;
+  text-align: center;
+}
+
+.empty-movie h1 {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.empty-movie button,
+.create-movie-btn {
+  height: 48px;
+  background-color: var(--accent);
+  color: var(--text-primary);
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 0 32px;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: var(--font);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.empty-movie button:hover,
+.create-movie-btn:hover {
+  background-color: var(--accent-hover);
+}
+
+/* ============================================
+   LOADING / ERROR STATE
+   ============================================ */
+.api-response {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 100px);
+  color: var(--text-muted);
+  font-size: 16px;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+  .movie-grid {
+    padding: 24px 20px;
+    gap: 16px;
+  }
+}
